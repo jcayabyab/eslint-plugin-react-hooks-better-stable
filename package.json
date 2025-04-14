@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-hooks-better-stable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "commonjs",
   "packageManager": "pnpm@9.10.0",
   "description": "react-hooks/exhaustive-deps with more customization for stable references",
