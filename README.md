@@ -34,3 +34,9 @@ Then extend the recommended eslint config and turn off the original `eslint-plug
   }
 }
 ```
+
+## Development
+
+### Testing
+
+Run `npm test` to run all tests for rules.
