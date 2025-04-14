@@ -362,10 +362,13 @@ export default {
         ) {
           // Check memoized value is stable
           // useMemo(() => { ... }, []) / useCallback((...) => { ... }, [])
-          const hookArgs = callee.parent.arguments;
+          const hookArgs =
+            callee.parent.arguments ||
+            // If called as React.useCallback or React.useMemo
+            callee.parent.parent.arguments;
 
           // Check it has dependency list
-          if (hookArgs.length < 2) return false;
+          if (!hookArgs || hookArgs.length < 2) return false;
 
           const dependencies = hookArgs[1].elements;
           if (dependencies.length === 0) {

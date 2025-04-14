@@ -7825,6 +7825,25 @@ const checkReactiveFunctionOutputIsStableTests = {
         },
       ],
     },
+    // Case where called as React.useCallback
+    {
+      code: normalizeIndent`
+          function MyComponent() {
+            const [foo, setFoo] = useState(0);
+            const func = React.useCallback(() => {
+              setFoo(2);
+            }, []);
+            useEffect(() => {
+              func();
+            }, []);
+          }
+        `,
+      options: [
+        {
+          checkReactiveFunctionOutputIsStable: true,
+        },
+      ],
+    },
   ],
   invalid: [
     {
